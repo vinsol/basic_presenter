@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/vinsol/basic_presenter.png)](https://codeclimate.com/github/vinsol/basic_presenter)
+
 # BasicPresenter
 # 
 
