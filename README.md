@@ -1,5 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/vinsol/basic_presenter.png)](https://codeclimate.com/github/vinsol/basic_presenter)
-
+[![Gem Version](https://badge.fury.io/rb/basic_presenter.png)](http://badge.fury.io/rb/basic_presenter)
 # BasicPresenter
 # 
 
