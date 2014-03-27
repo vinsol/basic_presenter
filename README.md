@@ -48,7 +48,7 @@ Or to use the edge version, add this to your Gemfile:
     gem 'basic_presenter', :github => 'vinsol/basic_presenter'
 
 ## Usage
-### Installation and Configuration
+
 
 #### Creating Presenter Directory
 
