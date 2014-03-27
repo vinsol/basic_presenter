@@ -1,10 +1,7 @@
 # BasicPresenter
 # 
 
-[![Gem Version]()]()
-[![Build Status]()]()
-[![Coverage Status]()]()
-[![Code Climate]()]()
+
 
 BasicPresenter adds a layer of presentation logic to your application.
 
@@ -51,6 +48,21 @@ Or to use the edge version, add this to your Gemfile:
     gem 'basic_presenter', :github => 'vinsol/basic_presenter'
 
 ## Usage
+### Installation and Configuration
+
+#### Creating Presenter Directory
+
+```sh
+rails g basic_presenter:install
+```
+
+#### Generating Presenters
+
+To generate a presenter by itself:
+
+```sh
+rails g basic_presenter:presenter User
+```
 
 ### Writing Presenters
 
@@ -196,20 +208,6 @@ user.full_name # Output: Vinsol-User
 #### RSpec
 
 **PENDING:** The specs are placed in `spec/presenters`. Add `type: :presenter` if they are placed elsewhere.
-
-### Creating Presenter Directory
-
-```sh
-rails g basic_presenter:install
-```
-
-### Generating Presenters
-
-To generate a presenter by itself:
-
-```sh
-rails g basic_presenter:presenter User
-```
 
 ## Acknowledgements
 
