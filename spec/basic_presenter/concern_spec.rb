@@ -14,7 +14,7 @@ end
 
 #class BasePresenter
 #  # extend Forwardable
-#  # Presenter Class should allow DomainClass instance 
+#  # Presenter Class should allow DomainClass instance
 #  # to be initialized
 #
 #  attr_reader :domain_object
@@ -59,72 +59,72 @@ module BasicPresenter
 
     context "Presenter Class Modification Interface" do
       it "should determine default presenter class by the Domain Class" do
-        dummy_domain_object.default_presenter.should eq(DomainClassPresenter)
+        expect(dummy_domain_object.default_presenter).to eq(DomainClassPresenter)
       end
 
       it "should tell current presenter class" do
-        dummy_domain_object.presenter_class.should eq(DomainClassPresenter)
+        expect(dummy_domain_object.presenter_class).to eq(DomainClassPresenter)
       end
 
       it "should assume default presenter class as presenter class when not set" do
-        dummy_domain_object.presenter_class.should eq(DomainClassPresenter)
+        expect(dummy_domain_object.presenter_class).to eq(DomainClassPresenter)
       end
 
       it "should recognize presenter class when set" do
-        dummy_domain_object.presenter_class.should eq(DomainClassPresenter)
+        expect(dummy_domain_object.presenter_class).to eq(DomainClassPresenter)
         dummy_domain_object.presenter_class = AnotherPresenter
-        dummy_domain_object.presenter_class.should eq(AnotherPresenter)
+        expect(dummy_domain_object.presenter_class).to eq(AnotherPresenter)
       end
     end
 
     context "Helper Methods" do
       it "should be able to inform change in Presenter Class" do
-        dummy_domain_object.presenter_class.should eq(DomainClassPresenter)
-        dummy_domain_object.should be_presenter_class_not_changed
+        expect(dummy_domain_object.presenter_class).to eq(DomainClassPresenter)
+        expect(dummy_domain_object).to be_presenter_class_not_changed
         dummy_domain_object.presenter_class = AnotherPresenter
-        dummy_domain_object.should be_presenter_class_changed
-        dummy_domain_object.presenter_class.should eq(AnotherPresenter)
+        expect(dummy_domain_object).to be_presenter_class_changed
+        expect(dummy_domain_object.presenter_class).to eq(AnotherPresenter)
       end
     end
 
     context "Presenter Instance Creation to allow delegation of Presenter Methods" do
       it "should delegate presenter methods on Default Presenter when not set" do
-        dummy_domain_object.presenter.should be_an_instance_of(DomainClassPresenter)
+        expect(dummy_domain_object.presenter).to be_an_instance_of(DomainClassPresenter)
       end
 
       it "should delegate presenter methods on Explicit Presenter if set" do
         dummy_domain_object.presenter_class = AnotherPresenter
-        dummy_domain_object.presenter.should be_an_instance_of(AnotherPresenter)
+        expect(dummy_domain_object.presenter).to be_an_instance_of(AnotherPresenter)
       end
 
       context "Create Presenter Instance Once and return same if Presenter Class not changed" do
         it "when no Presenter Class set" do
           dummy_domain_object_presenter = dummy_domain_object.presenter
-          dummy_domain_object.presenter.should eq(dummy_domain_object_presenter)
-          dummy_domain_object.presenter.should eq(dummy_domain_object_presenter)
-          dummy_domain_object.presenter.should eq(dummy_domain_object_presenter)
+          expect(dummy_domain_object.presenter).to eq(dummy_domain_object_presenter)
+          expect(dummy_domain_object.presenter).to eq(dummy_domain_object_presenter)
+          expect(dummy_domain_object.presenter).to eq(dummy_domain_object_presenter)
         end
 
         it "when Presenter Class changed" do
           dummy_domain_object_presenter = dummy_domain_object.presenter
           dummy_domain_object.presenter_class = AnotherPresenter
           new_dummy_domain_object_presenter = dummy_domain_object.presenter
-          dummy_domain_object_presenter.should be_an_instance_of(DomainClassPresenter)
-          new_dummy_domain_object_presenter.should be_an_instance_of(AnotherPresenter)
-          dummy_domain_object.presenter.should eq(new_dummy_domain_object_presenter)
-          dummy_domain_object.presenter.should eq(new_dummy_domain_object_presenter)
-          dummy_domain_object.presenter.should eq(new_dummy_domain_object_presenter)
+          expect(dummy_domain_object_presenter).to be_an_instance_of(DomainClassPresenter)
+          expect(new_dummy_domain_object_presenter).to be_an_instance_of(AnotherPresenter)
+          expect(dummy_domain_object.presenter).to eq(new_dummy_domain_object_presenter)
+          expect(dummy_domain_object.presenter).to eq(new_dummy_domain_object_presenter)
+          expect(dummy_domain_object.presenter).to eq(new_dummy_domain_object_presenter)
         end
       end
     end
 
     describe "Presenter Methods Available on Domain Object through #presenter" do
       it "should allow presenter methods to be called through #presenter" do
-        dummy_domain_object.presenter.full_name.should eq('WelcomePresenter')
+        expect(dummy_domain_object.presenter.full_name).to eq('WelcomePresenter')
       end
 
       it "should allow domain_object to be accessed through #domain_object" do
-        dummy_domain_object.presenter.domain_object.should eq(dummy_domain_object)
+        expect(dummy_domain_object.presenter.domain_object).to eq(dummy_domain_object)
       end
     end
   end
