@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "basic_presenter"
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Pikender Sharma", "Hemant Khemani", "Akhil Bansal"]
   s.email       = "info@vinsol.com"
