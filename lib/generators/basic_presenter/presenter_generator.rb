@@ -5,7 +5,7 @@ module BasicPresenter
       check_class_collision suffix: "Presenter"
 
       def create_presenter_file
-        create_file "app/presenters/#{file_name}_presenter.rb", <<-FILE
+        create_file "app/presenters/#{file_name}_presenter.rb", <<~FILE
   class #{class_name}Presenter < ApplicationPresenter
     presents :#{plural_name.singularize}
 
